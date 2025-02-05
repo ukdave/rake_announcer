@@ -8,4 +8,7 @@ RSpec::Core::RakeTask.new(:spec)
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
-task default: %i[spec rubocop]
+require_relative "lib/rake_announcer/rake_task"
+RakeAnnouncer::RakeTask.new(tasks: %i[spec rubocop])
+
+task default: %i[spec rubocop rake_announcer:ok]
