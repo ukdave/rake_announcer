@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require "simplecov"
+
+SimpleCov.start do
+  enable_coverage :branch
+end
+
 require "rake_announcer"
 
 RSpec.configure do |config|
