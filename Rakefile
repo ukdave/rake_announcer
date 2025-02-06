@@ -8,6 +8,9 @@ RSpec::Core::RakeTask.new(:spec)
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
+require "semantic_release/rake_task"
+SemanticRelease::RakeTask.new(:semver)
+
 require_relative "lib/rake_announcer/rake_task"
 RakeAnnouncer::RakeTask.new(tasks: %i[spec rubocop])
 
