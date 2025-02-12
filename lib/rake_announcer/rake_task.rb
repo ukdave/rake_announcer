@@ -10,7 +10,7 @@ module RakeAnnouncer
 
       namespace name do
         tasks.each do |t|
-          RakeAnnouncer.enhance_rake_task(t)
+          RakeAnnouncer.announce_rake_task(t)
         end
 
         desc "Print the 'ALL TESTS PASSED' message"

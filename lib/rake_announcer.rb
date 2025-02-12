@@ -7,7 +7,7 @@ require_relative "rake_announcer/version"
 module RakeAnnouncer
   class Error < StandardError; end
 
-  def self.enhance_rake_task(task_name)
+  def self.announce_rake_task(task_name)
     announce_task = Rake::Task.define_task("announce_#{task_name}") do
       RakeAnnouncer.announce("Running #{task_name}")
     end

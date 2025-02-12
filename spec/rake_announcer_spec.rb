@@ -5,23 +5,23 @@ RSpec.describe RakeAnnouncer do
     expect(RakeAnnouncer::VERSION).not_to be_nil
   end
 
-  describe ".enhance_rake_task" do
+  describe ".announce_rake_task" do
     before do
       Rake::Task.define_task("dummy_task")
     end
 
     it "defines a new rake task" do
-      described_class.enhance_rake_task("dummy_task")
+      described_class.announce_rake_task("dummy_task")
       expect(Rake::Task.tasks.map(&:name)).to include("announce_dummy_task")
     end
 
     it "adds the new rake task as a pre-requisite to the original task" do
-      described_class.enhance_rake_task("dummy_task")
+      described_class.announce_rake_task("dummy_task")
       expect(Rake::Task["dummy_task"].prerequisites).to include("announce_dummy_task")
     end
 
     it "prints an announcement when the original task is invoked" do
-      described_class.enhance_rake_task("dummy_task")
+      described_class.announce_rake_task("dummy_task")
       expect { Rake::Task["dummy_task"].invoke }.to output(/Running dummy_task/).to_stdout
     end
   end
