@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rake_announcer (1.1.0)
+    rake_announcer (1.2.0)
       rake (>= 13)
       term-ansicolor (~> 1.11)
 
