@@ -1,3 +1,5 @@
+- feat: Drop support for Ruby 3.1 which has reached End of Life
+
 ## v1.1.0 (12 February 2025)
 
 * feat: Add option to prepend announce tasks
