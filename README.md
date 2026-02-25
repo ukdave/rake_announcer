@@ -33,9 +33,20 @@ require "rake_announcer/rake_task"
 RakeAnnouncer::RakeTask.new(tasks: %i[spec rubocop])
 ```
 
-Include the names of any rake tasks that you want announced in the `tasks` array. The above example will print a message before the `spec` and `rubocop` tasks.
+Include the names of any rake tasks that you want announced in the `tasks` array. The above example will print a message before the `spec` and `rubocop` tasks run.
 
-You can also print a simple "All Tests Passed" message by adding the `rake_announcer:ok` task, e.g.:
+If you have a default Rake task defined you can automatically announce all of the dependent tasks like so avoiding any duplication:
+
+```ruby
+task default: %i[spec rubocop]
+
+require "rake_announcer/rake_task"
+RakeAnnouncer::RakeTask.new(tasks: Rake::Task[:default].prereqs, prepend: true)
+```
+
+By default announcements are displayed immediately before each task runs, but after the task's dependencies/prerequisites have run. If you prefer the announcement to be displayed before any of the task's dependencies/prerequisites have run then you can use the `prepend: true` option.
+
+Finally, you can print a simple "All Tests Passed" message by adding the `rake_announcer:ok` task, e.g.:
 
 ```ruby
 task default: %i[spec rubocop rake_announcer:ok]
