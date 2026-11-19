@@ -1,3 +1,6 @@
+- feat: Drop support for Ruby 3.2 which has reached End of Life
+- chore: Update development dependencies
+
 ## v1.2.0 (03 November 2025)
 
 - ci: Bump actions/checkout from 4 to 5
