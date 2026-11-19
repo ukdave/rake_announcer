@@ -23,7 +23,7 @@ module RakeAnnouncer
     puts "\n#{Term::ANSIColor.blue}#{Term::ANSIColor.underline}● #{message}#{Term::ANSIColor.reset}"
   end
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable-next Metrics/MethodLength
   def self.ok(message = "ALL TESTS PASSED")
     puts
     print Term::ANSIColor.bold,
@@ -41,5 +41,4 @@ module RakeAnnouncer
           Term::ANSIColor.clear
     puts
   end
-  # rubocop:enable Metrics/MethodLength
 end
